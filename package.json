@@ -1,9 +1,21 @@
 {
   "name": "@vojtechlanka/vue-tags-input",
-  "version": "3.0.0",
+  "version": "3.0.8",
   "author": "Johannes Munari <johannesm@hotmail.de>",
   "license": "MIT",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-tags-input.umd.cjs",
+  "module": "./dist/vue-tags-input.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-tags-input.js",
+      "require": "./dist/vue-tags-input.umd.cjs"
+    },
+    "./style.css": "./dist/style.css"
+  },
   "description": "A tags input component for Vue3 based on @sipec/vue-tags-input which is fork from @JohMun/vue-tags-input.",
   "private": false,
   "keywords": [
@@ -30,12 +42,13 @@
   },
   "dependencies": {
     "fast-deep-equal": "^3.1.3",
-    "vue": "^3.3.4",
+    "vue": "3.x",
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
     "sass": "^1.66.1",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-libcss": "^1.1.1"
   }
 }

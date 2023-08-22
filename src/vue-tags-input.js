@@ -1,11 +1,11 @@
 // The file contains the main application logic
 // data, computed properties, methods, watchers and the component lifecycle
 
-import equal from 'fast-deep-equal';
-import { createTags, createTag, createClasses, clone } from './create-tags';
 import TagInput from './components/tag-input.vue';
-import props from './vue-tags-input.props';
+import props from './vue-tags-input.props.js';
+import equal from 'fast-deep-equal';
 import draggable from 'vuedraggable';
+import { createTags, createTag, createClasses, clone } from './create-tags.js';
 
 export default {
   name: 'VueTagsInput',
