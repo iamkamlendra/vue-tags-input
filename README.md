@@ -19,9 +19,6 @@ Vue 3
 npm i @vojtechlanka/vue-tags-input@3.0.0
 ```
 
-## Vue 3
-
-
 ## Usage with draggable
 
 Draggable is disabled by default. Set prop `:is-draggable` to true to enable it. You can also set `:draggable-handle` to true to enable handle which can be styled with css class `.handle`. Classes for ghost-class and drag-class are `.ghost-tag` and `.drag-tag`.
