@@ -3,7 +3,7 @@
 <template>
   <input
     v-if="scope.edit"
-    v-model="scope.tag.text"
+    v-model="scope.element.text"
     :maxlength="scope.maxlength"
     type="text"
     class="ti-tag-input"
