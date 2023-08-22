@@ -11,7 +11,7 @@ Forked from [@johmun/vue-tags-input](https://www.npmjs.com/package/@johmun/vue-t
 
 Vue 2
 ```
-npm i @vojtechlanka/vue-tags-input@2.1.1-draggable
+npm i @vojtechlanka/vue-tags-input@2.1.2-draggable
 ```
 
 Vue 3
