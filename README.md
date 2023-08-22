@@ -16,7 +16,7 @@ npm i @vojtechlanka/vue-tags-input@2.1.1-draggable
 
 Vue 3
 ```
-npm i @vojtechlanka/vue-tags-input@3.0.0
+npm i @vojtechlanka/vue-tags-input@^3
 ```
 
 ## Usage with draggable
@@ -41,7 +41,11 @@ On drop `tag-order-changed` is emitted with array of tags in new order. Use this
 
 ```javascript
 <script>
+// Vue 2
 import VueTagsInput from '@vojtechlanka/vue-tags-input';
+
+// Vue 3
+import { VueTagsInput } from '@vojtechlanka/vue-tags-input';
 
 export default {
   components: {
