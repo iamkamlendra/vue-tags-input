@@ -1,71 +1,7 @@
-# vue-tags-input
+# Vue 3 + Vite
 
-A tags input component for VueJS with autocompletion, custom validation, templating and much more
+This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-[Demo & Docs](http://www.vue-tags-input.com)
+## Recommended IDE Setup
 
-## Features
-
-* No dependencies
-* Custom validation rules
-* Hooks: Before adding, Before deleting ...
-* Edit tags after creation
-* Fast setup
-* Works with Vuex
-* Small size: 34kb minified (css included) | gzipped 9kb
-* Autocompletion
-* Many customization options
-* Own templates
-* Delete tags on backspace
-* Add tags on paste
-* Examples & Docs
-
-## Install
-
-NPM
-```
-npm install @johmun/vue-tags-input
-```
-
-CDN
-```
-<script src="https://unpkg.com/@johmun/vue-tags-input/dist/vue-tags-input.js"></script>
-```
-
-## Usage
-
-```html
-<template>
-  <div>
-    <vue-tags-input
-      v-model="tag"
-      :tags="tags"
-      @tags-changed="newTags => tags = newTags"
-    />
-  </div>
-</template>
-```
-
-```javascript
-<script>
-import VueTagsInput from '@johmun/vue-tags-input';
-
-export default {
-  components: {
-    VueTagsInput,
-  },
-  data() {
-    return {
-      tag: '',
-      tags: [],
-    };
-  },
-};
-</script>
-```
-
-## License
-
-[MIT](https://opensource.org/licenses/MIT)
-
-Copyright (c) 2019 Johannes Munari
+- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
