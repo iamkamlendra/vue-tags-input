@@ -13,5 +13,3 @@ export {
   createTags,
   TagInput,
 };
-
-export default VueTagsInput;
