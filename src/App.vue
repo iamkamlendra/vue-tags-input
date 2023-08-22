@@ -1,8 +1,7 @@
 <template>
   <vue-tags-input
-      ref="vueTagsInput" v-model="newTag" :tags="tags" :autocomplete-items="autocompleteItems"
-      :allow-edit-tags="true" :placeholder="inputPlaceholder" :is-draggable="true" :draggable-handle="true"
-      :autocomplete-min-length="autocompleteMinLength" :avoid-adding-duplicates="false" :autocomplete-filter-duplicates="false" :add-on-key="[32, 13]"
+      ref="vueTagsInput" v-model="newTag" :tags="tags" :autocomplete-items="autocompleteItems" :placeholder="inputPlaceholder"
+      :allow-edit-tags="true" :is-draggable="true" :draggable-handle="true" :autocomplete-min-length="autocompleteMinLength"
       @click="autocompleteMinLength = 0" @tags-changed="setNewTags" @tag-order-changed="newTagsOrder => tags = newTagsOrder"
     >
   </vue-tags-input>
