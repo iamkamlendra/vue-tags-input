@@ -1,9 +1,25 @@
 {
-  "name": "vue3-tags-input",
-  "private": true,
-  "version": "1.0.0",
+  "name": "@vojtechlanka/vue-tags-input",
+  "version": "3.0.0",
+  "author": "Johannes Munari <johannesm@hotmail.de>",
+  "license": "MIT",
   "type": "module",
   "description": "A tags input component for Vue3 based on @sipec/vue-tags-input which is fork from @JohMun/vue-tags-input.",
+  "private": false,
+  "keywords": [
+    "javascript",
+    "vue",
+    "vue3",
+    "tags",
+    "vue-tags-input",
+    "vue-component",
+    "autocomplete",
+    "draggable"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VojtechLanka/vue-tags-input.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
