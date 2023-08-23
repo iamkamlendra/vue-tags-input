@@ -11,7 +11,7 @@ Forked from [@sipec/vue-tags-input](https://github.com/sipec/vue-tags-input) whi
 
 Vue 2
 ```
-npm i @vojtechlanka/vue-tags-input@2.1.2-draggable
+npm i @vojtechlanka/vue-tags-input@^2
 ```
 
 Vue 3
