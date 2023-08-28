@@ -16,7 +16,7 @@
         :handle="draggableHandle ? '.handle' : ''"
         ghost-class="ghost-tag"
         drag-class="drag-tag"
-        item-key="id"
+        :item-key="getTagIndex"
         @start="drag=true"
         @end="drag=false; tagOrderChanged()"
       >

@@ -403,6 +403,9 @@ export default {
       this.selectedItem = null;
       this.$emit('click', event);
     },
+    getTagIndex(tag) {
+      return this.tagsCopy.findIndex(item => item.text === tag.text);
+    }
   },
   watch: {
     modelValue(newValue){
