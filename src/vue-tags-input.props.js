@@ -2,23 +2,23 @@
 
 const propValidatorTag = value => {
   return !value.some(t => {
-    const invalidText = !t.text;
-    if (invalidText) console.warn('Missing property "text"', t);
+    const invalidText = !t.text
+    if (invalidText) console.warn('Missing property "text"', t)
 
-    let invalidClasses = false;
-    if (t.classes) invalidClasses = typeof t.classes !== 'string';
-    if (invalidClasses) console.warn('Property "classes" must be type of string', t);
+    let invalidClasses = false
+    if (t.classes) invalidClasses = typeof t.classes !== 'string'
+    if (invalidClasses) console.warn('Property "classes" must be type of string', t)
 
-    return invalidText || invalidClasses;
-  });
-};
+    return invalidText || invalidClasses
+  })
+}
 
 const propValidatorStringNumeric = value => {
   return !value.some(v => {
     if (typeof v === 'number') {
-      const numeric = isFinite(v) && Math.floor(v) === v;
-      if (!numeric) console.warn('Only numerics are allowed for this prop. Found:', v);
-      return !numeric;
+      const numeric = isFinite(v) && Math.floor(v) === v
+      if (!numeric) console.warn('Only numerics are allowed for this prop. Found:', v)
+      return !numeric
     } else if (typeof v === 'string') {
       /*
        * Regex: || Not totally fool-proof yet, still matches "0a" and such
@@ -26,15 +26,15 @@ const propValidatorStringNumeric = value => {
        * - allow alpha characters
        * - deny numbers
        */
-      const string = /\W|[a-z]|!\d/i.test(v);
-      if (!string) console.warn('Only alpha strings are allowed for this prop. Found:', v);
-      return !string;
+      const string = /\W|[a-z]|!\d/i.test(v)
+      if (!string) console.warn('Only alpha strings are allowed for this prop. Found:', v)
+      return !string
     } else {
-      console.warn('Only numeric and string values are allowed. Found:', v);
-      return false;
+      console.warn('Only numeric and string values are allowed. Found:', v)
+      return false
     }
-  });
-};
+  })
+}
 
 export default {
   /**
@@ -52,7 +52,7 @@ export default {
   modelValue: {
     type: String,
     default: '',
-    required: true,
+    required: true
   },
   /**
    * @description Pass an array containing objects like in the example below.
@@ -72,7 +72,7 @@ export default {
   tags: {
     type: Array,
     default: () => [],
-    validator: propValidatorTag,
+    validator: propValidatorTag
   },
   /**
    * @description Expects an array containing objects inside. The objects
@@ -84,7 +84,7 @@ export default {
   autocompleteItems: {
     type: Array,
     default: () => [],
-    validator: propValidatorTag,
+    validator: propValidatorTag
   },
   /**
    * @description Defines whether a tag is editable after creation or not.
@@ -94,7 +94,7 @@ export default {
    */
   allowEditTags: {
     type: Boolean,
-    default: false,
+    default: false
   },
   /**
    * @description Defines if duplicate autocomplete items are filtered out from the view or not.
@@ -104,7 +104,7 @@ export default {
    */
   autocompleteFilterDuplicates: {
     default: true,
-    type: Boolean,
+    type: Boolean
   },
   /**
    * @description If it's true, the user can add tags only via the autocomplete layer.
@@ -114,7 +114,7 @@ export default {
    */
   addOnlyFromAutocomplete: {
     type: Boolean,
-    default: false,
+    default: false
   },
   /**
    * @description The minimum character length which is required
@@ -126,7 +126,7 @@ export default {
    */
   autocompleteMinLength: {
     type: Number,
-    default: 1,
+    default: 1
   },
   /**
    * @description If it's true, the autocomplete layer is always shown, regardless if
@@ -137,7 +137,7 @@ export default {
    */
   autocompleteAlwaysOpen: {
     type: Boolean,
-    default: false,
+    default: false
   },
   /**
    * @description Property to disable vue-tags-input.
@@ -147,7 +147,7 @@ export default {
    */
   disabled: {
     type: Boolean,
-    default: false,
+    default: false
   },
   /**
    * @description The placeholder text which is shown in the input, when it's empty.
@@ -157,7 +157,7 @@ export default {
    */
   placeholder: {
     type: String,
-    default: 'Add Tag',
+    default: 'Add Tag'
   },
   /**
    * @description Custom trigger key codes can be registrated. If the user presses one of these,
@@ -171,7 +171,7 @@ export default {
   addOnKey: {
     type: Array,
     default: () => [13],
-    validator: propValidatorStringNumeric,
+    validator: propValidatorStringNumeric
   },
   /**
    * @description Custom trigger key codes can be registrated. If the user edits a tag
@@ -185,7 +185,7 @@ export default {
   saveOnKey: {
     type: Array,
     default: () => [13],
-    validator: propValidatorStringNumeric,
+    validator: propValidatorStringNumeric
   },
   /**
    * @description The maximum amount the tags array is allowed to hold.
@@ -193,7 +193,7 @@ export default {
    * @type {Number}
    */
   maxTags: {
-    type: Number,
+    type: Number
   },
   /**
    * @description The maximum amount of characters the input is allowed to hold.
@@ -201,7 +201,7 @@ export default {
    * @type {Number}
    */
   maxlength: {
-    type: Number,
+    type: Number
   },
   /**
    * @description Pass an array containing objects like in the example below.
@@ -227,33 +227,33 @@ export default {
   validation: {
     type: Array,
     default: () => [],
-    validator(value) {
+    validator (value) {
       return !value.some(v => {
-        const missingRule = !v.rule;
-        if (missingRule) console.warn('Property "rule" is missing', v);
+        const missingRule = !v.rule
+        if (missingRule) console.warn('Property "rule" is missing', v)
 
         const validRule = v.rule && (
           typeof v.rule === 'string' ||
           v.rule instanceof RegExp ||
           {}.toString.call(v.rule) === '[object Function]'
-        );
+        )
 
         if (!validRule) {
           console.warn(
             'A rule must be type of string, RegExp or function. Found:',
             JSON.stringify(v.rule)
-          );
+          )
         }
 
-        const missingClasses = !v.classes;
-        if (missingClasses) console.warn('Property "classes" is missing', v);
+        const missingClasses = !v.classes
+        if (missingClasses) console.warn('Property "classes" is missing', v)
 
-        const invalidType = v.type && typeof v.type !== 'string';
-        if (invalidType) console.warn('Property "type" must be type of string. Found:', v);
+        const invalidType = v.type && typeof v.type !== 'string'
+        if (invalidType) console.warn('Property "type" must be type of string. Found:', v)
 
-        return !validRule || missingRule || missingClasses || invalidType;
-      });
-    },
+        return !validRule || missingRule || missingClasses || invalidType
+      })
+    }
   },
   /**
    * @description Defines the characters which splits a text into different pieces,
@@ -269,13 +269,13 @@ export default {
   separators: {
     type: Array,
     default: () => [';'],
-    validator(value) {
+    validator (value) {
       return !value.some(s => {
-        const invalidType = typeof s !== 'string';
-        if (invalidType) console.warn('Separators must be type of string. Found:', s);
-        return invalidType;
-      });
-    },
+        const invalidType = typeof s !== 'string'
+        if (invalidType) console.warn('Separators must be type of string. Found:', s)
+        return invalidType
+      })
+    }
   },
   /**
    * @description If it's true, the user can't add or save a tag,
@@ -286,7 +286,7 @@ export default {
    */
   avoidAddingDuplicates: {
     type: Boolean,
-    default: true,
+    default: true
   },
   /**
    * @description If the input holds a value and loses the focus,
@@ -297,7 +297,7 @@ export default {
    */
   addOnBlur: {
     type: Boolean,
-    default: true,
+    default: true
   },
   /**
    * @description Custom function to detect duplicates. If the function returns 'true',
@@ -314,7 +314,7 @@ export default {
    */
   isDuplicate: {
     type: Function,
-    default: null,
+    default: null
   },
   /**
    * @description If it's true, the user can paste into the input element and
@@ -325,7 +325,7 @@ export default {
    */
   addFromPaste: {
     type: Boolean,
-    default: true,
+    default: true
   },
   /**
    * @description Defines if it's possible to delete tags by pressing backspace.
@@ -339,7 +339,7 @@ export default {
    */
   deleteOnBackspace: {
     default: true,
-    type: Boolean,
+    type: Boolean
   },
   /**
    * @description Defines if it's possible to reorder items using drag and drop.
@@ -349,7 +349,7 @@ export default {
    */
   isDraggable: {
     type: Boolean,
-    default: false,
+    default: false
   },
   /**
    * @description Defines if items use handle to be dragged.
@@ -359,11 +359,11 @@ export default {
    */
   draggableHandle: {
     type: Boolean,
-    default: false,
+    default: false
   },
   // event handlers
   onBeforeAddingTag: Function,
   onBeforeDeletingTag: Function,
   onBeforeEditingTag: Function,
-  onBeforeSavingTag: Function,
-};
+  onBeforeSavingTag: Function
+}

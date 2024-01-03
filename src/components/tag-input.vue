@@ -2,14 +2,8 @@
 
 <template>
   <input
-    v-if="scope.edit"
-    v-model="scope.element.text"
-    :maxlength="scope.maxlength"
-    type="text"
-    class="ti-tag-input"
-    size="1"
-    @input="scope.validateTag(scope.index, $event)"
-    @blur="scope.performCancelEdit(scope.index)"
+    v-if="scope.edit" v-model="scope.element.text" :maxlength="scope.maxlength" type="text"
+    class="ti-tag-input" size="1" @input="scope.validateTag(scope.index, $event)" @blur="scope.performCancelEdit(scope.index)"
     @keydown="scope.performSaveEdit(scope.index, $event)"
   >
 </template>
@@ -19,11 +13,9 @@
 export default {
   name: 'TagInput',
   props: {
-    scope: {
-      type: Object,
-    },
-  },
-};
+    scope: { type: Object, required: true }
+  }
+}
 
 </script>
 
