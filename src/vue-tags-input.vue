@@ -11,7 +11,7 @@
         <draggable
           v-model="tagsCopy" group="tags" class="ti-tags" tag="ul"
           draggable=".item" :handle="draggableHandle ? '.handle' : ''" ghost-class="ghost-tag" drag-class="drag-tag"
-          :item-key="getTagIndex" @start="drag=true" @end="drag=false; tagOrderChanged()"
+          :item-key="getTagIndex" @start="drag=true" @end="drag=false" @change="tagOrderChanged()"
         >
           <template #item="{element, index}">
             <li
